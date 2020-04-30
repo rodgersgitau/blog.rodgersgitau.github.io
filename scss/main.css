@@ -242,9 +242,6 @@ table {
     background-size: 200% 100%;
     background-position: 100% 0;
     transition: background-position 0.5s; }
-  .btn.btn-outline-secondary {
-    opacity: 1;
-    border-color: #321325; }
   .btn:hover {
     opacity: 1;
     text-decoration: none; }
