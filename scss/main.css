@@ -453,4 +453,16 @@ small {
 @media (max-width: 768px) {
   .not-found {
     width: fit-content;
-    margin: 0; } }
+    text-align: center; }
+    .not-found .not-found-message {
+      margin: 2rem auto;
+      width: fit-content;
+      text-align: left; }
+      .not-found .not-found-message p {
+        margin-left: -1rem; }
+      .not-found .not-found-message ul {
+        width: fit-content;
+        margin: 0 auto; }
+    .not-found .not-found-actions {
+      width: fit-content;
+      margin: 0 auto; } }
