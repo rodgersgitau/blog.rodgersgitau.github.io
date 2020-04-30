@@ -449,3 +449,7 @@ small {
     .not-found .not-found-message ul {
       list-style: disc;
       margin: 0 1.5rem; }
+
+@media (max-width: 768px) {
+  .not-found {
+    width: fit-content; } }
