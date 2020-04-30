@@ -241,7 +241,7 @@ table {
     background: linear-gradient(to right, #652454 0%, #652454 50%, #ffffff 50%, #ffffff 100%);
     background-size: 200% 100%;
     background-position: 100% 0;
-    transition: background-position 0.5s; }
+    transition: all 0.3s; }
   .btn:hover {
     opacity: 1;
     text-decoration: none; }
