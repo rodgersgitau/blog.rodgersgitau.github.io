@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .container {
+    @apply w-full mx-auto max-w-screen-sm py-8;
+  }
+  .page {
+    @apply w-full h-full min-h-screen text-dark-900 dark:text-white;
+  }
+  /* .input {
+    @apply h-10 w-full rounded-md border border-dark-500 dark:border-primary-50 bg-transparent px-3 py-2 text-sm ring-offset-primary placeholder:text-dark-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .button {
+    @apply inline-flex items-center gap-2 cursor-pointer text-base font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-primary;
+  } */
+}
