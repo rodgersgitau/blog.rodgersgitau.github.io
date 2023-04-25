@@ -47,8 +47,13 @@ module.exports = {
           },
           "100%": { opacity: "100%", transform: "translateX(0) rotateX(0)" },
         },
+        zoom: {
+          "0%": { transform: "scale(1.05)" },
+          "100%": { transform: "scale(0)" },
+        },
       },
       animation: {
+        zoom: "zoom 0.25s ease-in-out",
         "swivel-icon": "swivel 0.5s ease-in-out",
       },
     },
