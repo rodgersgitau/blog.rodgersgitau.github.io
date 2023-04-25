@@ -972,12 +972,6 @@ video {
   transition-duration: 150ms;
 }
 
-.transition-all {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
 .placeholder\:text-dark-800::-moz-placeholder {
   --tw-text-opacity: 1;
   color: rgb(51 51 51 / var(--tw-text-opacity));
