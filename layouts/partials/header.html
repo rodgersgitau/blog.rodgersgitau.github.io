@@ -1,0 +1,24 @@
+<nav class="fixed top-0 left-0 right-0 z-50 text-neutral-800 dark:text-white">
+  <div class="container flex items-center border-b border-current">
+    <a href="/" class="flex flex-col gap-1 font-sans capitalize w-max">
+      <strong class="text-lg">rodgers m gitau</strong>
+      <span class="text-sm">software engineer</span>
+    </a>
+    <button id="btnTheme" class="ml-auto">
+      {{ partial "theme.html" . }}
+    </button>
+  </div>
+
+  {{/* <ul class="nav-menu">
+    {{ $currentPage := . }}
+    {{ range .Site.Menus.main }}
+    {{ $active := or (eq $currentPage.Title .Name) (or ($currentPage.HasMenuCurrent "main" .)
+    ($currentPage.IsMenuCurrent "main" .)) }}
+    <li class="nav-menu-link {{ if $active }}active{{ end }}">
+      <a href="{{ .URL }}" title="{{ .Identifier }}">
+        <span>{{ .Name }}</span>
+      </a>
+    </li>
+    {{ end }}
+  </ul> */}}
+</nav>
