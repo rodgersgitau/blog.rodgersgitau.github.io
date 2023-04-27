@@ -1,16 +1,18 @@
-{{ define "main" }}
-<!-- contentStart -->
-{{ $meRaw := resources.Get "images/dashboard.png" }}
-{{ $bgPhoto := $meRaw.Resize "400x" }}
+{{- define "main" }}
+<!-- resources -->
+{{- $bgLightRaw := resources.Get "images/dashboard.png" }}
+{{- $bgLight := $bgLightRaw.Resize "400x" }}
 
-<section class="page dark:text-accent-500">
-  <div class="relative w-full h-max md:h-[70vh] block md:flex items-center bg-accent-100 dark:bg-neutral-800">
+<!-- contentStart -->
+<section class="page text-dark-900 dark:text-primary-100">
+  <div
+    class="relative flex flex-col items-center justify-center w-full transition-colors h-max md:min-h-[70vh] bg-accent-100 dark:bg-neutral-800">
     <div
-      class="container flex flex-col-reverse justify-center w-full gap-4 mx-auto font-serif md:gap-8 md:justify-between md:items-center md:flex-row">
-      <div class="max-w-[35rem] flex flex-col items-start w-full gap-6 md:gap-8">
-        <h2 class="flex items-center gap-2 text-2xl md:text-4xl text-dark-900 dark:text-primary-700">
-          <span>Hello </span>
-          <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      class="container flex flex-col-reverse justify-center w-full gap-6 mx-auto font-serif lg:gap-8 lg:justify-between lg:items-center lg:flex-row">
+      <div class="mx-auto lg:mx-0 max-w-[35rem] flex flex-col items-center lg:items-start w-full gap-8 font-sans">
+        <h2 class="flex items-center gap-2 text-2xl lg:text-4xl">
+          <span>Hello, there!</span>
+          <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-smile">
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
@@ -18,18 +20,19 @@
             <line x1="15" y1="9" x2="15.01" y2="9"></line>
           </svg>
         </h2>
-        <h4 class="text-2xl text-dark-900 dark:text-accent">Welcome to my blog</h4>
-        <p class="w-full text-base leading-snug md:leading-loose">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam facere non eveniet adipisci
-          alias iusto harum quos consequuntur natus. Voluptas magni tenetur provident officia atque, perferendis ullam
-          id
-          illo blanditiis.
+        <h3 class="text-xl font-medium capitalize lg:text-2xl">
+          Welcome to my code chronicles
+        </h3>
+        <p class="w-full text-base leading-snug text-center lg:leading-loose lg:text-left">
+          From <b> web applications</b> & <b> video games</b> to creating complex
+          <b>software systems</b>, join me on a personal and honest exploration into the fascination world of coding. I
+          offer practical insights and tips for those on a similar journey.
         </p>
         <form class="w-full h-full">
           <div class="flex flex-col items-center gap-8 lg:flex-row">
-            <label class="relative flex items-center flex-1 w-full">
+            <label class="relative flex items-center w-full lg:w-2/3">
               <input id="input-email"
-                class="flex w-full p-3 text-base bg-transparent border rounded-md border-dark-900 dark:border-primary-50 ring-offset-primary dark:placeholder:text-dark-600 placeholder:text-dark-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                class="flex w-full p-3 text-base bg-transparent border rounded-md opacity-75 border-dark-900 dark:border-primary-50 ring-offset-primary placeholder:text-current focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 hover:opacity-100"
                 type="email" name="email" placeholder="Enter your Email" required />
 
               <svg class="w-8 h-8 absolute right-3 top-[50%] translate-y-[-50%]" viewBox="0 0 15 15" fill="none"
@@ -39,51 +42,59 @@
                   fill="currentColor" />
               </svg>
             </label>
-            <div class="flex items-center w-full h-full lg:w-1/4">
+            <div class="flex items-center w-full h-full lg:w-1/3">
               <button type="submit"
-                class="flex items-center justify-center w-full gap-2 p-4 text-base font-black uppercase transition-colors rounded-md cursor-pointer text-primary-100 bg-dark-900 dark:text-primary-100 dark:bg-primary-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-primary">
+                class="w-full px-6 py-3.5 transition-transform duration-[0.2s] border-0 font-semibold text-center rounded-md cursor-pointer text-primary-50 bg-dark-900 hover:scale-105">
                 Subscribe
               </button>
             </div>
           </div>
         </form>
       </div>
-      <div class="w-full h-max max-w-[20rem] md:max-w-[25rem] flex items-center justify-center md:justify-end">
-        <img src="{{ $bgPhoto.RelPermalink }}" class="object-cover w-full h-auto" alt="blog screenshot" />
+      <div class="w-[12.5rem] h-auto mx-auto lg:mx-0 lg:ml-auto md:w-[22.5rem] lg:w-[30rem]">
+        <img src="{{ $bgLight.RelPermalink }}" class="object-cover w-full h-full" alt="blog screenshot" />
       </div>
     </div>
-    <div class="block w-full md:absolute md:bottom-0 md:left-0 md:right-0">
-      <div class="container flex items-center justify-start w-full h-full gap-4">
-        <a href="https://linkedin/rodgersgitau"
-          class="flex items-center p-2 rounded-md cursor-pointer bg-neutral-800 hover:animate-zoom hover:text-primary-900 text-primary aspect-square">
-          <svg class="w-8 h-8" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-              d="M2 1C1.44772 1 1 1.44772 1 2V13C1 13.5523 1.44772 14 2 14H13C13.5523 14 14 13.5523 14 13V2C14 1.44772 13.5523 1 13 1H2ZM3.05 6H4.95V12H3.05V6ZM5.075 4.005C5.075 4.59871 4.59371 5.08 4 5.08C3.4063 5.08 2.925 4.59871 2.925 4.005C2.925 3.41129 3.4063 2.93 4 2.93C4.59371 2.93 5.075 3.41129 5.075 4.005ZM12 8.35713C12 6.55208 10.8334 5.85033 9.67449 5.85033C9.29502 5.83163 8.91721 5.91119 8.57874 6.08107C8.32172 6.21007 8.05265 6.50523 7.84516 7.01853H7.79179V6.00044H6V12.0047H7.90616V8.8112C7.8786 8.48413 7.98327 8.06142 8.19741 7.80987C8.41156 7.55832 8.71789 7.49825 8.95015 7.46774H9.02258C9.62874 7.46774 10.0786 7.84301 10.0786 8.78868V12.0047H11.9847L12 8.35713Z"
-              fill="currentColor" />
-          </svg>
-        </a>
-        <a href="https://github/rodgersgitau"
-          class="flex items-center p-2 rounded-md cursor-pointer bg-neutral-800 hover:animate-zoom hover:text-primary-900 text-primary aspect-square">
-          <svg class="w-8 h-8" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-              d="M7.49933 0.25C3.49635 0.25 0.25 3.49593 0.25 7.50024C0.25 10.703 2.32715 13.4206 5.2081 14.3797C5.57084 14.446 5.70302 14.2222 5.70302 14.0299C5.70302 13.8576 5.69679 13.4019 5.69323 12.797C3.67661 13.235 3.25112 11.825 3.25112 11.825C2.92132 10.9874 2.44599 10.7644 2.44599 10.7644C1.78773 10.3149 2.49584 10.3238 2.49584 10.3238C3.22353 10.375 3.60629 11.0711 3.60629 11.0711C4.25298 12.1788 5.30335 11.8588 5.71638 11.6732C5.78225 11.205 5.96962 10.8854 6.17658 10.7043C4.56675 10.5209 2.87415 9.89918 2.87415 7.12104C2.87415 6.32925 3.15677 5.68257 3.62053 5.17563C3.54576 4.99226 3.29697 4.25521 3.69174 3.25691C3.69174 3.25691 4.30015 3.06196 5.68522 3.99973C6.26337 3.83906 6.8838 3.75895 7.50022 3.75583C8.1162 3.75895 8.73619 3.83906 9.31523 3.99973C10.6994 3.06196 11.3069 3.25691 11.3069 3.25691C11.7026 4.25521 11.4538 4.99226 11.3795 5.17563C11.8441 5.68257 12.1245 6.32925 12.1245 7.12104C12.1245 9.9063 10.4292 10.5192 8.81452 10.6985C9.07444 10.9224 9.30633 11.3648 9.30633 12.0413C9.30633 13.0102 9.29742 13.7922 9.29742 14.0299C9.29742 14.2239 9.42828 14.4496 9.79591 14.3788C12.6746 13.4179 14.75 10.7025 14.75 7.50024C14.75 3.49593 11.5036 0.25 7.49933 0.25Z"
-              fill="currentColor" />
-          </svg>
+    <div class="w-full h-max lg:absolute lg:bottom-0 lg:left-0 lg:right-0">
+      <div class="container flex flex-col justify-center gap-6 lg:justify-start">
+        <h3 class="font-sans text-lg font-medium text-center capitalize lg:text-left">
+          Connect with me
+        </h3>
+        <div
+          class="flex flex-wrap items-center justify-center gap-4 lg:justify-start text-primary-500 dark:text-primary-300">
+          <a href="https://linkedin.com/in/rodgersgitau" target="_blank" rel="noreferrer noopener"
+            class="inline-flex items-center gap-2 px-4 py-2 text-current rounded-md opacity-75 cursor-pointer dark:bg-dark-900 bg-accent-400 hover:opacity-100">
+            <svg class="w-6 h-6" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M2 1C1.44772 1 1 1.44772 1 2V13C1 13.5523 1.44772 14 2 14H13C13.5523 14 14 13.5523 14 13V2C14 1.44772 13.5523 1 13 1H2ZM3.05 6H4.95V12H3.05V6ZM5.075 4.005C5.075 4.59871 4.59371 5.08 4 5.08C3.4063 5.08 2.925 4.59871 2.925 4.005C2.925 3.41129 3.4063 2.93 4 2.93C4.59371 2.93 5.075 3.41129 5.075 4.005ZM12 8.35713C12 6.55208 10.8334 5.85033 9.67449 5.85033C9.29502 5.83163 8.91721 5.91119 8.57874 6.08107C8.32172 6.21007 8.05265 6.50523 7.84516 7.01853H7.79179V6.00044H6V12.0047H7.90616V8.8112C7.8786 8.48413 7.98327 8.06142 8.19741 7.80987C8.41156 7.55832 8.71789 7.49825 8.95015 7.46774H9.02258C9.62874 7.46774 10.0786 7.84301 10.0786 8.78868V12.0047H11.9847L12 8.35713Z"
+                fill="currentColor" />
+            </svg>
+            <span class="font-sans text-base font-medium">LinkedIn</span>
+          </a>
+          <a href="https://github.com/rodgersgitau" target="_blank" rel="noreferrer noopener"
+            class="inline-flex items-center gap-2 px-4 py-2 text-current rounded-md opacity-75 cursor-pointer dark:bg-dark-900 bg-accent-400 hover:opacity-100">
+            <svg class="w-6 h-6" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M7.49933 0.25C3.49635 0.25 0.25 3.49593 0.25 7.50024C0.25 10.703 2.32715 13.4206 5.2081 14.3797C5.57084 14.446 5.70302 14.2222 5.70302 14.0299C5.70302 13.8576 5.69679 13.4019 5.69323 12.797C3.67661 13.235 3.25112 11.825 3.25112 11.825C2.92132 10.9874 2.44599 10.7644 2.44599 10.7644C1.78773 10.3149 2.49584 10.3238 2.49584 10.3238C3.22353 10.375 3.60629 11.0711 3.60629 11.0711C4.25298 12.1788 5.30335 11.8588 5.71638 11.6732C5.78225 11.205 5.96962 10.8854 6.17658 10.7043C4.56675 10.5209 2.87415 9.89918 2.87415 7.12104C2.87415 6.32925 3.15677 5.68257 3.62053 5.17563C3.54576 4.99226 3.29697 4.25521 3.69174 3.25691C3.69174 3.25691 4.30015 3.06196 5.68522 3.99973C6.26337 3.83906 6.8838 3.75895 7.50022 3.75583C8.1162 3.75895 8.73619 3.83906 9.31523 3.99973C10.6994 3.06196 11.3069 3.25691 11.3069 3.25691C11.7026 4.25521 11.4538 4.99226 11.3795 5.17563C11.8441 5.68257 12.1245 6.32925 12.1245 7.12104C12.1245 9.9063 10.4292 10.5192 8.81452 10.6985C9.07444 10.9224 9.30633 11.3648 9.30633 12.0413C9.30633 13.0102 9.29742 13.7922 9.29742 14.0299C9.29742 14.2239 9.42828 14.4496 9.79591 14.3788C12.6746 13.4179 14.75 10.7025 14.75 7.50024C14.75 3.49593 11.5036 0.25 7.49933 0.25Z"
+                fill="currentColor" />
+            </svg>
+            <span class="font-sans text-base font-medium">Github</span>
+          </a>
 
-          <a href="https://codesandbox/rodgersgitau"
-            class="flex items-center p-2 rounded-md cursor-pointer bg-neutral-800 hover:animate-zoom hover:text-primary-900 text-primary aspect-square">
-            <svg class="w-8 h-8" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <a href="https://codesandbox.io/u/rodgersgitau" target="_blank" rel="noreferrer noopener"
+            class="inline-flex items-center gap-2 px-4 py-2 text-current rounded-md opacity-75 cursor-pointer dark:bg-dark-900 bg-accent-400 hover:opacity-100">
+            <svg class="w-6 h-6" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd"
                 d="M7.71144 0.796902C7.57741 0.734357 7.42257 0.734357 7.28855 0.796902L1.28855 3.5969C1.11251 3.67905 0.999993 3.85573 0.999993 4.04999V10.95C0.999993 11.1443 1.11251 11.3209 1.28855 11.4031L7.28855 14.2031C7.42257 14.2656 7.57741 14.2656 7.71144 14.2031L13.7114 11.4031C13.8875 11.3209 14 11.1443 14 10.95V4.04999C14 3.85573 13.8875 3.67905 13.7114 3.5969L7.71144 0.796902ZM7.49999 3.15674L5.98039 2.51091L7.49999 1.80176L9.01959 2.51091L7.49999 3.15674ZM7.69556 4.16018L10.2382 3.07958L12.2719 4.02865L7.49999 6.05671L2.72808 4.02865L4.76181 3.07958L7.30442 4.16018C7.42939 4.2133 7.57059 4.2133 7.69556 4.16018ZM7.99999 6.93078L13 4.80578V7.92966L11.0821 8.8119C10.7273 8.97509 10.5 9.32988 10.5 9.72039V11.7982L7.99999 12.9649V6.93078ZM11.5 11.3316L13 10.6316V9.03039L11.5 9.72039V11.3316ZM6.99999 6.93078V12.9649L4.50231 11.7993V9.72036C4.50231 9.32985 4.27499 8.97506 3.92022 8.81187L1.99999 7.92856V4.80578L6.99999 6.93078ZM1.99999 10.6316L3.50231 11.3326L3.50231 9.72036L1.99999 9.02929V10.6316Z"
                 fill="currentColor" />
             </svg>
+            <span class="font-sans text-base font-medium">CodeSandbox</span>
           </a>
+        </div>
       </div>
     </div>
   </div>
-  <div class="container flex flex-col items-start justify-center gap-8">
-
-  </div>
 </section>
 <!-- contentEnd -->
-{{ end }}
+
+{{- end }}

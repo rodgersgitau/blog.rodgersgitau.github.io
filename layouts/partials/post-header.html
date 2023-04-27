@@ -1,0 +1,32 @@
+<header class="flex flex-col gap-4">
+  <div class="flex flex-col gap-2">
+    <h1 class="text-xl text-center uppercase">{{ .Title }}</h1>
+    {{ if .Description }}
+    <h4 class="text-base text-center text-neutral-600">{{ .Description }}</h4>
+    {{ end }}
+  </div>
+
+  <div class="grid grid-cols-2 gap-2">
+    <span>Published</span>
+    <time datetime='{{ .Date.Format "2006-01-02" }}'>
+      {{ dateFormat (.Site.Params.dateFormat) .Date }}
+    </time>
+  </div>
+
+  <div class="grid grid-cols-2 gap-2">
+    <span>Author</span>
+    <strong>
+      <a href="{{ .Params.profile | default .Site.Author.profile | default '#' }}" rel="author">
+        {{.Params.author | default .Site.Author.name }}
+      </a>
+    </strong>
+  </div>
+
+  {{ if .Site.Params.readingTime }}
+  <div class="grid grid-cols-2 gap-2">
+    <span>{{ .Site.Params.readingTimeText }} </span>
+    <span>{{ .Page.ReadingTime }} min</span>
+  </div>
+  {{ end }}
+
+</header>

@@ -13,7 +13,7 @@
   },
   "scripts": {
     "build-css": "npx tailwindcss -i ./tailwind.css -o ./assets/style.css",
-    "dev": "concurrently \"hugo server --disableFastRender\" \"yarn watch-css\"",
+    "dev": "concurrently \"hugo server -D\" \"yarn watch-css\"",
     "watch-css": "npx tailwindcss -i ./tailwind.css -o ./assets/style.css --watch"
   }
 }
