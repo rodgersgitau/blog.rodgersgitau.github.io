@@ -1,22 +1,23 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: "class",
-  content: ["content/**/*.md", "layouts/**/*.html"],
+  content: ["content/**/*.mdx", "layouts/**/*.html"],
   theme: {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#a69ce1",
-          900: "#6a5acd",
-          800: "#796bd2",
-          700: "#887bd7",
-          600: "#978cdc",
-          500: "#a69ce1",
-          400: "#b5ade6",
-          300: "#c3bdeb",
-          200: "#d2cef0",
-          100: "#e1def5",
-          50: "#f0effa",
+          DEFAULT: "#3F3D56",
+          50: "#B6B4CA",
+          100: "#A8A5C0",
+          200: "#8B88AA",
+          300: "#6B6892",
+          400: "#555374",
+          500: "#3F3D56",
+          600: "#323145",
+          700: "#252433",
+          800: "#1A1924",
+          900: "#0D0D12",
+          950: "#070609",
         },
         dark: {
           DEFAULT: "#191919",
@@ -47,13 +48,8 @@ module.exports = {
           },
           "100%": { opacity: "100%", transform: "translateX(0) rotateX(0)" },
         },
-        zoom: {
-          "0%": { transform: "scale(1.05)" },
-          "100%": { transform: "scale(0)" },
-        },
       },
       animation: {
-        zoom: "zoom 0.25s ease-in-out",
         "swivel-icon": "swivel 0.5s ease-in-out",
       },
     },
