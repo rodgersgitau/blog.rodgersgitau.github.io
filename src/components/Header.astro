@@ -1,0 +1,26 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+---
+
+<header>
+  <div class="container">
+    <nav>
+      <a href="/" class="text-lg font-black uppercase">Logo</a>
+      <div class="flex items-center w-max gap-4">
+        <HeaderLink href="/">Home</HeaderLink>
+        <HeaderLink href="/blog">Blog</HeaderLink>
+        <HeaderLink href="/about">About</HeaderLink>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<style lang="postcss">
+  header {
+    @apply sticky inset-0 shadow;
+    background: linear-gradient(var(--gray-gradient)) no-repeat;
+  }
+  nav {
+    @apply flex py-8 justify-between;
+  }
+</style>

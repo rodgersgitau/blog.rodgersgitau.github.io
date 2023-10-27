@@ -1,0 +1,25 @@
+---
+import { SITE_TITLE } from "../consts";
+const today = new Date();
+---
+
+<footer>
+  <div class="container">
+    <h4 class="copyright !font-medium">
+      <span> &copy; {today.getFullYear()}</span>
+      <span>{SITE_TITLE}</span>
+      <span> All rights reserved</span>
+    </h4>
+  </div>
+</footer>
+
+<style lang="postcss">
+  footer {
+	@apply p-8 font-atkinson text-[--grey];
+	@apply flex items-center;
+    background: linear-gradient(var(--gray-gradient)) no-repeat;
+  }
+  .copyright{
+	@apply flex flex-col gap-2 justify-start font-medium text-sm;
+  }
+</style>
