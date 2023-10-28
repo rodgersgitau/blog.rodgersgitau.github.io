@@ -1,8 +1,11 @@
 ---
+import { Image } from "astro:assets";
+
 import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import Header from "../components/Header.astro";
+
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 ---
 
 <!doctype html>
@@ -13,7 +16,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   <body>
     <div class="relative w-full min-h-screen h-full flex flex-col gap-0">
       <Header title={SITE_TITLE} />
-      <main class="container flex-1 w-full h-full grid items-center">
+      <main
+        class="container flex-1 w-full h-full grid grid-cols-1 xl:grid-cols-2 items-center"
+      >
         <div class="flex flex-col gap-8 w-full py-10 text-left mx-aut0">
           <h1
             class="w-full max-w-3xl flex flex-wrap items-center text-3xl lg:text-4xl font-title font-normal 2xl:text-5xl gap-3 !leading-normal !tracking-normal"
@@ -24,6 +29,15 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
             <span>based in</span>
             <span class="font-semibold">Nairobi Kenya.</span>
           </h1>
+        </div>
+        <div class="relative flex justify-center items-center">
+          <Image
+            width="300"
+            height="300"
+            alt="avatar"
+            src="/images/avatar.jpg"
+            class="object-cover w-2/3 aspect-square rounded-full opacity-80"
+          />
         </div>
       </main>
       <Footer />
