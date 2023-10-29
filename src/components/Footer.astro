@@ -3,9 +3,9 @@ import { SITE_TITLE } from "../consts";
 const today = new Date();
 ---
 
-<footer>
-  <div class="container">
-    <h4 class="copyright !font-medium">
+<footer class="w-full h-max">
+  <div class="container py-8 border-t border-text/10">
+    <h4 class="flex flex-col gap-2 justify-start font-medium text-sm">
       <span> &copy; {today.getFullYear()}</span>
       <span>{SITE_TITLE}</span>
       <span> All rights reserved</span>
@@ -15,11 +15,6 @@ const today = new Date();
 
 <style lang="postcss">
   footer {
-	@apply p-8 font-atkinson text-[--grey];
-	@apply flex items-center;
-    background: linear-gradient(var(--gray-gradient)) no-repeat;
-  }
-  .copyright{
-	@apply flex flex-col gap-2 justify-start font-medium text-sm;
+	  background: linear-gradient(var(--gray-gradient)) no-repeat;
   }
 </style>
