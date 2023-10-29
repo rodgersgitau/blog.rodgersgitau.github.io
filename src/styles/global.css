@@ -5,6 +5,21 @@
 
 @layer base {
   :root {
+    --text: 14 4 32;
+    --background: 230 230 230;
+    --primary: 48 28 79;
+    --secondary: 220 224 214;
+    --accent: 151 99 99;
+  }
+  .dark {
+    --text: 233 223 251;
+    --background: 26 26 26;
+    --primary: 196 176 227;
+    --secondary: 37 41 31;
+    --accent: 156 104 104;
+  }
+
+  /* :root {
     --accent: #2337ff;
     --accent-dark: #000d8a;
     --black: 15, 18, 25;
@@ -14,7 +29,8 @@
     --gray-gradient: rgba(var(--gray-light), 50%), #fff;
     --box-shadow: 0 2px 6px rgba(var(--gray), 25%),
       0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%);
-  }
+  } */
+
   @font-face {
     font-family: "Atkinson";
     src: url("/fonts/atkinson-regular.woff") format("woff");
@@ -29,6 +45,12 @@
     font-style: normal;
     font-display: swap;
   }
+
+  body {
+    color: rgb(var(--color));
+    background: rgb(var(--background));
+    font-family: "Atkinson", "Open Sans", sans-serif;
+  }
 }
 
 @layer utilities {
@@ -40,5 +62,25 @@
 
   .container {
     @apply px-8 w-full mx-auto max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl;
+  }
+
+  .image-mask {
+    mask-image: linear-gradient(45deg, #000000 25%, rgba(var(--accent) 0.2) 25%),
+      linear-gradient(-45deg, #000000 25%, rgba(0, 0, 0, 0.2) 25%),
+      linear-gradient(45deg, rgba(0, 0, 0, 0.2) 75%, #000000 75%),
+      linear-gradient(-45deg, rgba(0, 0, 0, 0.2) 75%, #000000 75%);
+    mask-size: 20px 20px;
+    mask-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+
+    -webkit-mask-image: linear-gradient(
+        45deg,
+        #000000 25%,
+        rgba(0, 0, 0, 0.2) 25%
+      ),
+      linear-gradient(-45deg, #000000 25%, rgba(0, 0, 0, 0.2) 25%),
+      linear-gradient(45deg, rgba(0, 0, 0, 0.2) 75%, #000000 75%),
+      linear-gradient(-45deg, rgba(0, 0, 0, 0.2) 75%, #000000 75%);
+    -webkit-mask-size: 20px 20px;
+    -webkit-mask-position: 0 0, 0 10px, 10px -10px, -10px 0px;
   }
 }
