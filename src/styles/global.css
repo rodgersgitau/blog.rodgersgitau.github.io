@@ -20,8 +20,6 @@
   }
 
   /* :root {
-    --accent: #2337ff;
-    --accent-dark: #000d8a;
     --black: 15, 18, 25;
     --gray: 96, 115, 159;
     --gray-light: 229, 233, 240;
@@ -49,7 +47,14 @@
   body {
     color: rgb(var(--color));
     background: rgb(var(--background));
+    background-size: cover;
+    background-position: bottom center;
+    background-image: url("/images/ascii-pattern.svg");
     font-family: "Atkinson", "Open Sans", sans-serif;
+  }
+
+  body.dark {
+    background-image: url("/images/ascii-pattern-dark.svg");
   }
 }
 

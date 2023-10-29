@@ -3,30 +3,28 @@ import HeaderLink from "./HeaderLink.astro";
 import ThemeToggler from "./preact/ThemeToggle";
 ---
 
-<div class="container">
-  <nav>
-    <a href="/" class="text-lg font-black uppercase">Logo</a>
-    <div class="mx-auto flex items-center w-max gap-4">
-      <HeaderLink href="/">Home</HeaderLink>
-      <HeaderLink href="/blog">Blog</HeaderLink>
-      <HeaderLink href="/about">About</HeaderLink>
-    </div>
-    <div class="w-max ml-auto">
-      <ThemeToggler
-        client:visible
-        isInsideHeader={true}
-        labels={{ useLight: "light", useDark: "dark" }}
-      />
-    </div>
-  </nav>
-</div>
+<header class="sticky inset-0 z-50 !bg-background text-text">
+  <div class="container h-[10vh] border-b border-text/10">
+    <nav class="h-full flex items-center justify-between">
+      <a href="/" class="text-lg font-black uppercase">Logo</a>
+      <div class="flex-1 mx-auto flex items-center w-max gap-8 justify-center">
+        <HeaderLink href="/">Home</HeaderLink>
+        <HeaderLink href="/blog">Blog</HeaderLink>
+        <HeaderLink href="/about">About</HeaderLink>
+      </div>
+      <div class="h-full w-max ml-auto">
+        <ThemeToggler
+          client:visible
+          isInsideHeader={true}
+          labels={{ useLight: "light", useDark: "dark" }}
+        />
+      </div>
+    </nav>
+  </div>
+</header>
 
 <style lang="postcss">
   header {
-    @apply sticky inset-0 shadow;
     background: linear-gradient(var(--gray-gradient)) no-repeat;
-  }
-  nav {
-    @apply flex py-8 justify-between;
   }
 </style>

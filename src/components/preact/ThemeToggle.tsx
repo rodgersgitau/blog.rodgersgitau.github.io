@@ -73,11 +73,7 @@ const ThemeToggle = ({ labels, isInsideHeader }: Props) => {
   }, [theme]);
 
   return (
-    <div
-      className={`theme-toggle ${
-        isInsideHeader ? "hide-toggle-on-smaller-screens" : ""
-      }`}
-    >
+    <div className="theme-toggle">
       {themes.map((t, i) => {
         const icon = icons[i];
         const checked = t === theme;
