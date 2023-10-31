@@ -2,6 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 import Layout from "./Layout.astro";
+import { Image } from "astro:assets";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -33,36 +34,34 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 </style>
 
 <Layout>
-  <article>
-    <div class="container mx-auto">
-      <div class="relative w-full">
+  <article class="grid gap-8 @container">
+    <div class="relative w-full @md:w-1/2 @3xl:w-1/4 rounded-md">
+      {
+        heroImage && (
+          <Image
+            alt={title}
+            width={900}
+            height={450}
+            src={heroImage}
+            class="object-cover w-full h-auto lg:h-[65vh] rounded-md"
+          />
+        )
+      }
+    </div>
+    <div class="w-full grid gap-8">
+      <div class="flex gap-8 items-center rounded-md">
+        <FormattedDate date={pubDate} />
         {
-          heroImage && (
-            <img
-              width={1020}
-              height={510}
-              src={heroImage}
-              alt=""
-              class="object-cover w-full aspect-video mx-auto block shadow rounded-md"
-            />
+          updatedDate && (
+            <div class="last-updated-on">
+              Last updated on <FormattedDate date={updatedDate} />
+            </div>
           )
         }
-      </div>
-      <div class="w-full grid gap-10">
-        <div class="flex gap-8 items-center py-10 border-b border-text/10">
-          <FormattedDate date={pubDate} />
-          {
-            updatedDate && (
-              <div class="last-updated-on">
-                Last updated on <FormattedDate date={updatedDate} />
-              </div>
-            )
-          }
 
-          <h1 class="font-bold">{title}</h1>
-        </div>
-        <slot />
+        <h1 class="font-bold text-2xl @lg:text-4xl">{title}</h1>
       </div>
+      <slot />
     </div>
   </article>
 </Layout>
